@@ -22,3 +22,19 @@ export const nextSlide = () => {
   handleCanvasAnimation(slideIndex)
   handleThreeAnimation()
 }
+
+export const prevSlide = () => {
+  if(slideIndex == 0){
+    slideIndex = 2
+  } else {
+    slideIndex--
+  }
+
+  title.innerHTML = ''
+  const text = document.createTextNode(`slide${slideIndex+1}`)
+  title.appendChild(text)
+
+  handleCSSAnimation()
+  handleCanvasAnimation(slideIndex)
+  handleThreeAnimation()
+}

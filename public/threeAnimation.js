@@ -1,5 +1,5 @@
 import {visibleHeightAtZDepth, visibleWidthAtZDepth, lerp} from "../utils.js"
-import {nextSlide} from "../main.js"
+import {nextSlide, prevSlide} from "../main.js"
 
 const raycaster = new THREE.Raycaster()
 const objLoader = new THREE.OBJLoader()
@@ -21,7 +21,8 @@ objLoader.load(
       const screenBorderRight = visibleWidthAtZDepth(-10, camera) / 2
       const screenBottom = -visibleHeightAtZDepth(-10, camera) / 2
 
-      addCube(children[0], nextSlide, screenBorderRight - 1.5, screenBottom + 1)
+      addCube(children[0], prevSlide, screenBorderRight - 1.5, screenBottom + 1)
+      // addCube(children[0], nextSlide, screenBorderRight - 2.5, screenBottom + 1)
 
       animate()
     }
@@ -31,7 +32,7 @@ const addCube = (object, callbackFn, x, y) => {
   const cubeMesh = object.clone()
 
   cubeMesh.scale.setScalar(.3)
-  cubeMesh.rotation.set(THREE.Math.degToRad(90), 0, 0)
+  cubeMesh.rotation.set(THREE.Math.degToRad(90),0,0)
 
   const boundingBox = new THREE.Mesh(
       new THREE.BoxGeometry(.7, .7, .7),
