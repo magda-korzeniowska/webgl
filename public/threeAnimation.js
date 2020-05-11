@@ -32,7 +32,7 @@ const addCube = (object, callbackFn, x, y) => {
   const cubeMesh = object.clone()
 
   cubeMesh.scale.setScalar(.3)
-  cubeMesh.rotation.set(THREE.Math.degToRad(90),0,0)
+  cubeMesh.rotation.set(THREE.Math.degToRad(90), 0, 0)
 
   const boundingBox = new THREE.Mesh(
       new THREE.BoxGeometry(.7, .7, .7),
@@ -72,4 +72,4 @@ window.addEventListener('click', () => {
 
   const interesctedObjects = raycaster.intersectObjects([arrowBox])
   interesctedObjects.length && interesctedObjects[0].object.callbackFn()
-})
+}) 

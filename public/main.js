@@ -13,23 +13,19 @@ export const nextSlide = () => {
   } else {
     slideIndex++
   }
-
-  title.innerHTML = ''
-  const text = document.createTextNode(`slide${slideIndex+1}`)
-  title.appendChild(text)
-
-  handleCSSAnimation()
-  handleCanvasAnimation(slideIndex)
-  handleThreeAnimation()
+  changeSlide()
 }
 
 export const prevSlide = () => {
-  if(slideIndex == 0){
-    slideIndex = 2
+  if(slideIndex === 0){
+    slideIndex = SLIDES_COUNT
   } else {
     slideIndex--
   }
+  changeSlide()
+}
 
+const changeSlide = () => {
   title.innerHTML = ''
   const text = document.createTextNode(`slide${slideIndex+1}`)
   title.appendChild(text)
